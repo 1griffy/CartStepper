@@ -187,7 +187,7 @@ class _CartStepperState<VM extends num> extends State<CartStepper<VM>> {
           child: AspectRatio(
             aspectRatio: isExpanded ? style.buttonAspectRatio : 1,
             child: Center(
-              child: showIcons ? Icon(
+              child: widget.showIcons ? Icon(
                 style.iconPlus ?? CupertinoIcons.add,
                 color: isExpanded
                     ? style.activeForegroundColor
@@ -269,7 +269,7 @@ class _CartStepperState<VM extends num> extends State<CartStepper<VM>> {
             child: AspectRatio(
               aspectRatio: style.buttonAspectRatio,
               child: Center(
-                child: showIcons ? Icon(
+                child: widget.showIcons ? Icon(
                   style.iconMinus ?? CupertinoIcons.minus,
                   color: style.activeForegroundColor,
                 ) : Container(),
