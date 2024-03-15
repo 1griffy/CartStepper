@@ -43,6 +43,7 @@ class CartStepper<VM extends num> extends StatefulWidget {
     this.axis = Axis.horizontal,
     this.numberSize = 3,
     this.format,
+    this.showIcons = true,
     this.editKeyboardType,
     this.elevation,
     this.alwaysExpanded = false,
@@ -62,6 +63,8 @@ class CartStepper<VM extends num> extends StatefulWidget {
   final double numberSize;
 
   final NumberFormat? format;
+
+  final bool showIcons;
 
   final TextInputType? editKeyboardType;
 
@@ -184,12 +187,12 @@ class _CartStepperState<VM extends num> extends State<CartStepper<VM>> {
           child: AspectRatio(
             aspectRatio: isExpanded ? style.buttonAspectRatio : 1,
             child: Center(
-              child: Icon(
+              child: showIcons ? Icon(
                 style.iconPlus ?? CupertinoIcons.add,
                 color: isExpanded
                     ? style.activeForegroundColor
                     : style.foregroundColor,
-              ),
+              ) : Container(),
             ),
           ),
         ),
@@ -266,10 +269,10 @@ class _CartStepperState<VM extends num> extends State<CartStepper<VM>> {
             child: AspectRatio(
               aspectRatio: style.buttonAspectRatio,
               child: Center(
-                child: Icon(
+                child: showIcons ? Icon(
                   style.iconMinus ?? CupertinoIcons.minus,
                   color: style.activeForegroundColor,
-                ),
+                ) : Container(),
               ),
             ),
           ),
